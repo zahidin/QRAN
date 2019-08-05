@@ -12,14 +12,11 @@ import {SubscriptionClient} from 'subscriptions-transport-ws';
 import { split } from 'apollo-link';
 import { getMainDefinition } from 'apollo-utilities';
 
-const dotenv = require('dotenv');
-dotenv.config()
-
 const cache = new InMemoryCache()
-const WsClient = new SubscriptionClient(`ws://localhost:4142/graphql`,{
+const WsClient = new SubscriptionClient(process.env.REACT_APP_API_GRAPHQL_WS,{
     reconnect:true
 })
-const httpLink = new HttpLink({uri: 'http://localhost:4142/graphql'})
+const httpLink = new HttpLink({uri: process.env.REACT_APP_API_GRAPHQL})
 const link = split(
     ({ query }) => {
         const { kind, operation } = getMainDefinition(query);

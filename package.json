@@ -53,7 +53,6 @@
   },
   "devDependencies": {
     "crypto": "^1.0.1",
-    "dotenv": "^8.0.0",
     "graphql": "^14.4.2"
   }
 }
