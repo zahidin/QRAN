@@ -13,6 +13,8 @@ QRAN (QR Antrian) With React JS Hooks & Apollo Client
 
 - Dashboard User
 
+- Logout User
+
 - Dashboard Operator
 
 - Board
