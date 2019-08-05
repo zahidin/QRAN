@@ -2,7 +2,7 @@
 
 QRAN (QR Antrian) With React JS Hooks & Apollo Client
 
-## Feature
+## 🧰 Feature
  - Register Queue
  - Dashboard User
  - Dashboard Operator
