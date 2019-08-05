@@ -33,3 +33,5 @@ npm start
 ![Operator Dashboard](https://imgdb.net/images/6033.png)
 
 ![Board](https://imgdb.net/images/6034.png)
+
+## 🤖 [Backend QRAN](https://github.com/zahidin/QRAN-SERVER) 
