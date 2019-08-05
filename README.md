@@ -8,6 +8,7 @@ QRAN (QR Antrian) With React JS Hooks & Apollo Client
  - Dashboard Operator
  - Board
  - Data With Graphql Subscription
+ - Scan Barcode
 ## 🚀 Getting started
 
 ### Installation 
