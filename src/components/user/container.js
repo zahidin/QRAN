@@ -9,14 +9,17 @@ import useReactRouter from 'use-react-router';
 import SOCKET_DIFFERENCE from '../../graphql/subscription/difference';
 import SOCKET_COUNTER from '../../graphql/subscription/new-counter';
 import COUNTER from '../../graphql/queries/counter';
+import LOGOUT_USER from '../../graphql/mutations/logout-user';
 
 function DashboardContainer(props){
     const Router = useReactRouter();
+    const [confirmation, setConfirmation] = useState(false)
     let numberUser = localStorage.getItem('userInfo') ?  JSON.parse(localStorage.getItem('userInfo')).number : Router.match.params.lastNumber
     
     let socketDifference = useSubscription(SOCKET_DIFFERENCE,{variables:{number:numberUser}})
     let socketCounter = useSubscription(SOCKET_COUNTER)
     const addQueue = useMutation(ADD_QUEUE)
+    const logoutUser = useMutation(LOGOUT_USER)
 
 
     const differenceQueue = useQuery(DIFFERENCE_QUEUE,{variables:{number:numberUser}})
@@ -44,6 +47,26 @@ function DashboardContainer(props){
         }
     }
 
+    const handleLogout = async () => {
+        const resultLocal = (JSON.parse(localStorage.getItem('userInfo'))) || false
+
+        if(resultLocal){
+            try{
+                await logoutUser({
+                    variables:{
+                        number: resultLocal.number,
+                    }
+                })
+                localStorage.removeItem("userInfo")
+                Router.history.push('/logout')
+            }catch(err){
+                alert(err)
+            }
+        }else{
+            Router.history.push('/blocked')
+        }
+    }
+    
     const handleAddQueue = async (ip,number,time) => {
         try{
             await addQueue({
@@ -53,7 +76,6 @@ function DashboardContainer(props){
                     time
                 }
             })
-            alert('berhasil')
         }catch(err){
             alert(err)
         }
@@ -63,6 +85,6 @@ function DashboardContainer(props){
         checkLoggedIn()
     },[])
 
-    return (<Dashboard router={Router} counter={counter} socketCounter={socketCounter} socketDifference={socketDifference} numberQueue={queue} differenceQueue={differenceQueue} />)
+    return (<Dashboard router={Router} handleLogout={handleLogout} confirmation={confirmation} setConfirmation={setConfirmation} counter={counter} socketCounter={socketCounter} socketDifference={socketDifference} numberQueue={queue} differenceQueue={differenceQueue} />)
 }
 export default DashboardContainer

@@ -4,7 +4,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
-function NotFound(){
+function Logout(){
     return(
         <Grid
             container
@@ -12,16 +12,16 @@ function NotFound(){
             direction="column"
             alignItems="center"
             justify="center"
-            style={{ minHeight: '100vh', backgroundColor:'#757575' }}
+            style={{ minHeight: '100vh', backgroundColor:'#33691e' }}
         >
             <Grid item md={9}>
-                <Card style={{color:'#fff',backgroundColor:'#9e9e9e'}}>
+                <Card style={{color:'#fff',backgroundColor:'#558b2f'}}>
                     <CardContent>
                         <Typography style={{fontWeight:'bold'}} gutterBottom variant="h4" align="center"component="h1">
-                            404
+                            Terimakasih Sudah Mengantri
                         </Typography>
                         <Typography gutterBottom variant="h5" align="center"component="h2">
-                            Not Found
+                            Anda Sudah Logout
                         </Typography>
                     </CardContent>
                 </Card>
@@ -30,4 +30,4 @@ function NotFound(){
     )
 }
 
-export default NotFound
+export default Logout

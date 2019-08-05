@@ -7,7 +7,8 @@ import {
 	NotFound,
 	Blocked,
 	Operator,
-	ScanBarcode
+	ScanBarcode,
+	Logout
 } from './components/index'
 
 const Routing = () => {
@@ -20,6 +21,7 @@ const Routing = () => {
 				<Route path="/:hash/:lastNumber" exact render={(props) => <DashboardUser {...props} />}></Route>
 				<Route path="/operator" exact render={(props) => <Operator {...props} />}></Route>
 				<Route path="/blocked" exact render={(props) => <Blocked {...props} />}></Route>
+				<Route path='/logout' exact={true} component={Logout} />
 				<Route path='*' exact={true} component={NotFound} />
 			</Switch>
 		</div>

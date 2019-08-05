@@ -1,7 +1,7 @@
 import React from 'react'
 import Box from '@material-ui/core/Box';
 import Card from '@material-ui/core/Card';
-import { CardContent, Typography  } from '@material-ui/core';
+import { CardContent, Typography, Grid  } from '@material-ui/core';
 import QRCode from 'qrcode.react'
 import Button from '@material-ui/core/Button';
 import { waitQuery } from '../../../config';
@@ -104,12 +104,17 @@ const Content = (props) => {
 }
 const RegisterQueue = (props) => {
     const lastQueue = waitQuery(props.lastQueue)
-    console.log(props.hash)
-    console.log(props.socketLastQueue,'SOCKET MASUK')
     return(
-        <div style={{backgroundColor:'#0091ea',height:'100vh'}}>
+         <Grid
+            container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            justify="center"
+            style={{ minHeight: '100vh', backgroundColor:'#29b6f6' }}
+        >
             <QRQueue {...props} lastQueue={lastQueue} socketLastQueue={props.socketLastQueue}/>
-        </div>
+        </Grid>
     )
 }
 
