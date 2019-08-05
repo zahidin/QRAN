@@ -7,8 +7,8 @@ QRAN (QR Antrian) With React JS Hooks & Apollo Client
  - Dashboard User
  - Dashboard Operator
  - Board
- - Data With Graphql Subscription
  - Scan Barcode
+ - Data Realtime With Graphql Subscription
 ## 🚀 Getting started
 
 ### Installation 
@@ -34,5 +34,7 @@ npm start
 ![Operator Dashboard](https://imgdb.net/images/6033.png)
 
 ![Board](https://imgdb.net/images/6034.png)
+
+![Scan Barcode](https://imgdb.net/images/6036.png)
 
 ## 🤖 [Backend QRAN](https://github.com/zahidin/QRAN-SERVER) 
