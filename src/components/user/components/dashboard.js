@@ -67,18 +67,18 @@ const NumberQueue = ({router,setConfirmation,handleLogout,turn}) => {
 }
 
 const NumberDifference = props => {
-    let difference = (props.difference && props.difference.difference) || null
+    let difference = (props.difference && props.difference.difference) || false
+    console.log("TCL: difference", props.difference)
     let counter = waitQuery(props.counter) || false
         counter = counter.counter || false
     let socketDifference = props.socketDifference.data ? props.socketDifference.data.newDifference : difference
-    console.log("TCL: socketDifference", socketDifference)
     let socketOperator = props.socketCounter.data ? props.socketCounter.data.newCounter : counter
     
     let status = ''
     if(socketDifference && socketDifference.number === "0"){
         props.setTurn(false)
         status = 'Siap-siap giliran anda'
-    }else if(socketDifference === null || parseInt(socketDifference.number) < 0){
+    }else if(parseInt(socketDifference.number) < 0){
         props.setTurn(true)
         status = 'Sekarang giliran anda'
     }else{
